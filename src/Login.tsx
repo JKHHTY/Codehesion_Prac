@@ -46,7 +46,6 @@ const Login =() =>{
         };
 
         console.log(data);
-        //axios.post(url + '/connect/token', data, config)
         api.post('/connect/token', data, config)
         .then(function (response) {
             //localStorage.setItem('access_token', response.data.access_token);
