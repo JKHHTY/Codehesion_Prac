@@ -51,7 +51,7 @@ const Login =() =>{
         data.append("grant_type", grantType);
 
         const config = {
-            headers: {"Content-Type": "application/x-www-form-urlencoded",},
+            headers: {"Content-Type": "application/x-www-form-urlencoded",}, 
         };
 
         console.log(data);
