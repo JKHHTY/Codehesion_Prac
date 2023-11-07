@@ -47,7 +47,8 @@ const Home = () =>{
   );
 
   const CategoryClick = (id: number) =>{
-    navigation();
+    console.log("hoi");
+    navigation(`/Words/${id}`);
   }
 
   return (

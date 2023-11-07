@@ -4,7 +4,7 @@ import './App.css';
 import Login from "./Login";
 import Home from './Home';
 import Register from './Register';
-import Words from "./Word";
+import Words from "./Words";
 
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/word" element={<Words />} />
+        <Route path="/words/:id" element={<Words />} />
       </Routes>
     </BrowserRouter>
   );
