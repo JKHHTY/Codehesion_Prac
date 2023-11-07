@@ -33,15 +33,6 @@ const Login =() =>{
     const FormSubmit = (e: { preventDefault: () => void; }) => 
     {
         e.preventDefault();
-        
-        // const data = {
-        //     "login": formData.username,
-        //     "password": formData.password,
-        //     "client_id": clientId,
-        //     "client_secret": clientSecret,
-        //     "scope": scope,
-        //     "grant_type": grantType,
-        // }
         const data = new URLSearchParams();
         data.append("client_id", clientId);
         data.append("client_secret", clientSecret);
