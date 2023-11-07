@@ -11,31 +11,44 @@ const Home = () =>{
     navigation("/register");
   }
 
-  // const [cate, setCate] = useState<{id:number,name:string}[]>([]);
-  // const cateURL = import.meta.env.VITE_BASE_URL + "/v1/admin/categories"
+  const [cate, setCate] = useState<{id:number,name:string}[]>([]);
+  const cateURL = import.meta.env.VITE_BASE_URL + "/v1/admin/categories"
 
-  // useEffect(()=>{
-  //   const accessToken = localStorage.getItem("access_token");
+  useEffect(()=>{
+    async function getData() {
+        const accessToken = localStorage.getItem("access_token");
     
-  //   const config = {
-  //     headers: {
-  //         Authorization: `Bearer ${accessToken}`,
-  //         "Content-Type": "application/json",
-  //     }, 
-  //   }
+        const config = {
+          headers: {
+              Authorization: `Bearer ${accessToken}`,
+              "Content-Type": "application/json",
+          }, 
+        }
 
-  //   axios.get(cateURL, config)
-  //   .then(function(response) {
-  //     //const data = response.data;
-  //     setCate(response.data);
-  //   })
-  //   .catch(function(error){
-  //       console.log("Failed to fetch categories", error);
-  //   })
+        //console.log(accessToken);
+        const data = await axios.get(cateURL, config)
+        .then(function(response) {
+            
+          //const data = response.data;
+          setCate(response.data.data);
+          console.log(response);
+        })
+        .catch(function(error){
+            console.log("Failed to fetch categories", error);
+        });
 
+    }
+   
+    getData();
+  },[cate.length != 0])
 
-  // })
+  const output = cate.map((category) =>
+    <li key={category.id} onClick={() => CategoryClick(category.id)} style={{ cursor: "pointer", textDecoration: "underline" }}>{category.name}</li>
+  );
 
+  const CategoryClick = (id: number) =>{
+    navigation();
+  }
 
   return (
       <>
@@ -43,6 +56,9 @@ const Home = () =>{
           <h1>Home Page</h1>
           <button onClick={handleRegistrationClick}>Register New User</button>
           <h2>Categories:</h2>
+          <ul>
+            {output}
+        </ul>
         </div>
       </>
   );

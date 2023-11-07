@@ -50,6 +50,7 @@ const Register =() => {
 
         api.post('/v1/admin/Users', data, config)
         .then(function (response) {
+            console.log(response + " added")
             alert("Register success");
             navigation("/home"); 
         })
