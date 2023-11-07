@@ -8,6 +8,7 @@ const Home = () =>{
       <>
         <div className="home-container">
           <h1>Home Page</h1>
+          <button /*onClick={handleRegistrationClick}*/>Register User</button>
         </div>
       </>
   );

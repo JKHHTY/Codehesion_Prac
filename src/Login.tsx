@@ -48,7 +48,8 @@ const Login =() =>{
         console.log(data);
         api.post('/connect/token', data, config)
         .then(function (response) {
-            //localStorage.setItem('access_token', response.data.access_token);
+            localStorage.setItem('access_token', response.data.access_token);
+            //console.log(response.data.access_token);
             navigation("/home");
             console.log(response);
         })
