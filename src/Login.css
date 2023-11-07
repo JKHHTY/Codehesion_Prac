@@ -1,0 +1,17 @@
+div.login-container{
+    text-align: center;
+    width: 300px;
+}
+
+div.form-group {
+    text-align: start;
+    margin-top: 20px;
+}
+
+div.form-group input {
+    width: 300px;
+}
+
+button {
+    margin-top:  20px;
+}
